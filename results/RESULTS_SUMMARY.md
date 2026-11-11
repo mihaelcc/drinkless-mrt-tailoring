@@ -1,6 +1,6 @@
 # Drink Less MRT — results summary
 
-Runtime: 353.3 s · Env: {'python': '3.13.16', 'numpy': '2.1.3', 'pandas': '2.2.3', 'lightgbm': '4.6.0', 'sklearn': '1.6.1', 'shap': '0.54.1', 'statsmodels': '0.15.0'}
+Runtime: 350.0 s · Env: {'python': '3.13.18', 'numpy': '2.4.6', 'pandas': '2.2.3', 'lightgbm': '4.6.0', 'sklearn': '1.6.1', 'shap': '0.54.1', 'statsmodels': '0.15.0'}
 
 ## Descriptives
 {"n_user_days": 10470, "n_users": 349, "p_notification": 0.598, "p_standard": 0.297, "p_new": 0.3, "p_open_8_9pm": 0.09, "p_open_if_notified": 0.126, "p_open_if_not": 0.036, "date_first": "2020-01-03", "date_last": "2020-04-30", "weekend_share": 0.285, "age_mean": 43.0, "age_sd": 11.3, "age_range": [21, 71], "female": 0.556, "manual": 0.106, "audit_mean": 17.9, "audit_sd": 6.4, "audit_cat": {"Hazardous (8-15)": 142, "At risk of alcohol dependence (20-40)": 123, "Harmful (16-19)": 84}, "p_used_before_8pm": 0.231, "p_already_engaged": 0.091}
@@ -19,7 +19,7 @@ Runtime: 353.3 s · Env: {'python': '3.13.16', 'numpy': '2.1.3', 'pandas': '2.2.
 - AUDIT: A_c=0.1076 [0.0567, 0.1584], p=0.0000; A_c:AUDIT_score=-0.0009 [-0.0036, 0.0017], p=0.4791
 - type: new_c=0.0857 [0.0673, 0.1041], p=0.0000; std_c=0.0956 [0.0766, 0.1147], p=0.0000
 
-## DR average effect: 0.0897
+## DR average effect: 0.0899
 
 ## By week
 {"week": 1, "days": "1-7", "p_notified": 0.1915, "p_not": 0.0464, "rd": 0.145, "rd_lo": 0.1176, "rd_hi": 0.1732, "rr": 4.12, "rr_lo": 3.03, "rr_hi": 5.98}
@@ -41,30 +41,36 @@ Trend: {'rd_slope_per_week': -0.027, 'rd_lo': -0.0359, 'rd_hi': -0.0177, 'rd_p_g
 {"variable": "weekend", "label": "Weekend", "value": 1, "n": 2983, "rd": 0.0685, "lo": 0.0478, "hi": 0.0896}
 
 ## Models (seed 7)
-- M1 GBM (context + traits): {'area': 0.0137, 'area_lo': 0.0098, 'area_hi': 0.0173, 'p_area_le0': 0.0, 'g40': 0.0265, 'g40_lo': 0.0194, 'g40_hi': 0.0333, 'g60': 0.0195, 'g60_lo': 0.0134, 'g60_hi': 0.0253, 'cate_sd': 0.0751, 'share_pred_negative': 0.022, 'quartile_effects': [0.0395, 0.0486, 0.1032, 0.1677]}
-- M2 GBM (context): {'area': 0.0165, 'area_lo': 0.0129, 'area_hi': 0.0202, 'p_area_le0': 0.0, 'g40': 0.0329, 'g40_lo': 0.025, 'g40_hi': 0.0395, 'g60': 0.0246, 'g60_lo': 0.0187, 'g60_hi': 0.0301, 'cate_sd': 0.0781, 'share_pred_negative': 0.001, 'quartile_effects': [0.035, 0.0401, 0.101, 0.1829]}
-- M3 Ridge (context): {'area': 0.0171, 'area_lo': 0.0131, 'area_hi': 0.0206, 'p_area_le0': 0.0, 'g40': 0.0318, 'g40_lo': 0.0245, 'g40_hi': 0.0393, 'g60': 0.0222, 'g60_lo': 0.0165, 'g60_hi': 0.0279, 'cate_sd': 0.0619, 'share_pred_negative': 0.002, 'quartile_effects': [0.0206, 0.0501, 0.1065, 0.1817]}
-- M4 Ridge (day + weekend): {'area': 0.0084, 'area_lo': 0.0056, 'area_hi': 0.0109, 'p_area_le0': 0.0, 'g40': 0.0121, 'g40_lo': 0.0078, 'g40_hi': 0.0168, 'g60': 0.0129, 'g60_lo': 0.0088, 'g60_hi': 0.0174, 'cate_sd': 0.0328, 'share_pred_negative': 0.0, 'quartile_effects': [0.0563, 0.073, 0.0946, 0.1351]}
-- M5 Random forest (context): {'area': 0.0168, 'area_lo': 0.0129, 'area_hi': 0.0207, 'p_area_le0': 0.0, 'g40': 0.0329, 'g40_lo': 0.025, 'g40_hi': 0.0405, 'g60': 0.0255, 'g60_lo': 0.0193, 'g60_hi': 0.0306, 'cate_sd': 0.0726, 'share_pred_negative': 0.03, 'quartile_effects': [0.0332, 0.0369, 0.1102, 0.1787]}
+- M1 GBM (context + traits): {'area': 0.0141, 'area_lo': 0.0101, 'area_hi': 0.0181, 'p_area_le0': 0.0, 'g40': 0.027, 'g40_lo': 0.0197, 'g40_hi': 0.0338, 'g60': 0.02, 'g60_lo': 0.0142, 'g60_hi': 0.0258, 'cate_sd': 0.075, 'share_pred_negative': 0.021, 'quartile_effects': [0.0443, 0.0414, 0.0982, 0.1755]}
+- M2 GBM (context): {'area': 0.0167, 'area_lo': 0.013, 'area_hi': 0.0204, 'p_area_le0': 0.0, 'g40': 0.0327, 'g40_lo': 0.0251, 'g40_hi': 0.0396, 'g60': 0.0224, 'g60_lo': 0.017, 'g60_hi': 0.0286, 'cate_sd': 0.0784, 'share_pred_negative': 0.002, 'quartile_effects': [0.0307, 0.0401, 0.106, 0.1825]}
+- M3 Ridge (context): {'area': 0.0175, 'area_lo': 0.0134, 'area_hi': 0.021, 'p_area_le0': 0.0, 'g40': 0.0316, 'g40_lo': 0.0241, 'g40_hi': 0.0382, 'g60': 0.0227, 'g60_lo': 0.0173, 'g60_hi': 0.0281, 'cate_sd': 0.0623, 'share_pred_negative': 0.003, 'quartile_effects': [0.0234, 0.0479, 0.1011, 0.187]}
+- M4 Ridge (day + weekend): {'area': 0.0084, 'area_lo': 0.0056, 'area_hi': 0.0111, 'p_area_le0': 0.0, 'g40': 0.0123, 'g40_lo': 0.0078, 'g40_hi': 0.0168, 'g60': 0.0123, 'g60_lo': 0.008, 'g60_hi': 0.0169, 'cate_sd': 0.033, 'share_pred_negative': 0.0, 'quartile_effects': [0.0585, 0.0709, 0.0962, 0.1338]}
+- M5 Random forest (context): {'area': 0.0169, 'area_lo': 0.013, 'area_hi': 0.0209, 'p_area_le0': 0.0, 'g40': 0.0334, 'g40_lo': 0.0251, 'g40_hi': 0.0408, 'g60': 0.0243, 'g60_lo': 0.0186, 'g60_hi': 0.03, 'cate_sd': 0.0729, 'share_pred_negative': 0.031, 'quartile_effects': [0.0324, 0.038, 0.1067, 0.1822]}
+
+## Paired model differences (area, M3 minus other)
+{"comparison": "M3 - M1", "diff": 0.0034, "lo": 0.0015, "hi": 0.0053, "p_two_sided": 0.002}
+{"comparison": "M3 - M2", "diff": 0.0008, "lo": -0.0004, "hi": 0.0021, "p_two_sided": 0.178}
+{"comparison": "M3 - M4", "diff": 0.0091, "lo": 0.0057, "hi": 0.0127, "p_two_sided": 0.0}
+{"comparison": "M3 - M5", "diff": 0.0006, "lo": -0.0007, "hi": 0.0017, "p_two_sided": 0.4}
 
 ## Robustness (area by seed)
 seed                           7       11      23      101
 model                                                     
-M1 GBM (context + traits)   0.0137  0.0142  0.0140  0.0137
-M2 GBM (context)            0.0165  0.0167  0.0167  0.0168
-M3 Ridge (context)          0.0171  0.0173  0.0172  0.0171
-M4 Ridge (day + weekend)    0.0084  0.0083  0.0085  0.0081
-M5 Random forest (context)  0.0168  0.0169  0.0169  0.0171
+M1 GBM (context + traits)   0.0141  0.0142  0.0139  0.0139
+M2 GBM (context)            0.0167  0.0168  0.0168  0.0168
+M3 Ridge (context)          0.0175  0.0176  0.0173  0.0173
+M4 Ridge (day + weekend)    0.0084  0.0083  0.0083  0.0084
+M5 Random forest (context)  0.0169  0.0169  0.0168  0.0169
 
 ## Benefit retained
                               20%    30%    40%    50%    60%    80%
-M1 GBM (context + traits)   0.361  0.577  0.696  0.755  0.817  0.906
-M2 GBM (context)            0.418  0.590  0.767  0.791  0.874  0.927
-M3 Ridge (context)          0.430  0.616  0.755  0.803  0.848  0.949
-M4 Ridge (day + weekend)    0.316  0.435  0.535  0.640  0.744  0.871
-M5 Random forest (context)  0.424  0.581  0.767  0.805  0.884  0.917
+M1 GBM (context + traits)   0.398  0.581  0.701  0.761  0.822  0.900
+M2 GBM (context)            0.414  0.589  0.764  0.803  0.849  0.933
+M3 Ridge (context)          0.426  0.624  0.751  0.801  0.853  0.944
+M4 Ridge (day + weekend)    0.321  0.435  0.536  0.640  0.737  0.874
+M5 Random forest (context)  0.426  0.605  0.771  0.804  0.870  0.918
 
-## Rule M3: {'intercept': 0.1076, 'coefs': {'day': -0.0024, 'weekend': -0.0247, 'before_8pm': 0.0782, 'after_9pm_day_before': 0.0608, 'already_engaged': 0.1164, 'habituation': -0.0117}, 'threshold_40pct': 0.0858, 'notified_share_by_state': {'before_8pm': {'0': 0.223, '1': 0.99}, 'already_engaged': {'0': 0.341, '1': 1.0}, 'weekend': {'0': 0.439, '1': 0.305}}}
-## Rule M4: {'intercept': 0.1537, 'coefs': {'day': -0.00359, 'weekend': -0.02663}, 'threshold_40pct': 0.1007, 'last_weekday': 14, 'last_weekend': 7}
-## SHAP M1 (traits share 0.245): {'before_8pm': 0.02781, 'already_engaged': 0.02025, 'day': 0.0184, 'age': 0.01707, 'after_9pm_day_before': 0.01214, 'AUDIT_score': 0.01062, 'weekend': 0.00837, 'habituation': 0.00446, 'female': 0.00169, 'manual': 0.00033}
-## Equity: {'by_engagement_tertile': [{'engagement_tertile': 'Low', 'share_notified_M3': 0.161, 'share_notified_random': 0.61}, {'engagement_tertile': 'Middle', 'share_notified_M3': 0.284, 'share_notified_random': 0.588}, {'engagement_tertile': 'High', 'share_notified_M3': 0.755, 'share_notified_random': 0.595}], 'users_zero_notifications_days17_30': 0.493}
+## Rule M3: {'intercept': 0.1077, 'coefs': {'day': -0.0024, 'weekend': -0.0241, 'before_8pm': 0.0767, 'after_9pm_day_before': 0.058, 'already_engaged': 0.1187, 'habituation': -0.0124}, 'threshold_40pct': 0.0844, 'notified_share_by_state': {'before_8pm': {'0': 0.223, '1': 0.99}, 'already_engaged': {'0': 0.341, '1': 1.0}, 'weekend': {'0': 0.439, '1': 0.304}}}
+## Rule M4: {'intercept': 0.1528, 'coefs': {'day': -0.00354, 'weekend': -0.02606}, 'threshold_40pct': 0.1007, 'last_weekday': 14, 'last_weekend': 7}
+## SHAP M1 (traits share 0.258): {'before_8pm': 0.0276, 'already_engaged': 0.02042, 'day': 0.01797, 'age': 0.0179, 'after_9pm_day_before': 0.01181, 'AUDIT_score': 0.01103, 'weekend': 0.00773, 'habituation': 0.00439, 'female': 0.00178, 'manual': 0.00062}
+## Equity: {'by_engagement_tertile': [{'engagement_tertile': 'Low', 'share_notified_M3': 0.161, 'share_notified_random': 0.61}, {'engagement_tertile': 'Middle', 'share_notified_M3': 0.284, 'share_notified_random': 0.588}, {'engagement_tertile': 'High', 'share_notified_M3': 0.754, 'share_notified_random': 0.595}], 'users_zero_notifications_days17_30': 0.493}
